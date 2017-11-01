@@ -2,19 +2,16 @@
 This program count how many instances of each letter were found in the string.
 */
 
-var characterCounter = {}; //an object that can represent the stats
+
 
 function countLetters (str){
-  var noSpace = str.split(" ").join(""); //turing string into an no space string
+  var characterCounter = {}; //an object that can represent the stats
 
-  compareLetters(noSpace);
-
-  return characterCounter;
-}
-
-function compareLetters(str){
   for (var i = 0; i < str.length; i++) {
-
+    // skipping spaces
+    if (str[i] === " ") {
+      continue;
+    }
     if (characterCounter[str[i]]){ //if match the charater, update object
       characterCounter[str[i]]++;
     }else{
@@ -22,8 +19,10 @@ function compareLetters(str){
     }
     //console.log(characterCounter);
   }
+
   return characterCounter;
 }
+
 
 var output = countLetters("lighthouse in the house");
 console.log(output);
