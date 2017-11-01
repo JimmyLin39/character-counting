@@ -14,12 +14,28 @@ function countLetters (str){
 }
 
 function compareLetters(str){
+  var findIndex = [];
   for (var i = 0; i < str.length; i++) {
 
     if (characterCounter[str[i]]){ //if match the charater, update object
-      characterCounter[str[i]]++;
-    }else{
-      characterCounter[str[i]] = 1;//if no other match
+      //var findIndex = i;
+      findIndex.push(i.toString());
+      console.log(findIndex);
+
+      characterCounter[str[i]].push(i);
+      console.log(characterCounter);
+
+      //findIndex.push(characterCounter[str[i]]);
+    }else{//if no other match
+      findIndex.push(i.toString());
+      characterCounter[str[i]] = [i];
+      //characterCounter[str[i]].push(i);
+      //console.log(typeof characterCounter["l"]);
+      //findIndex.push(characterCounter);
+
+      console.log(i);
+      console.log(findIndex);
+      console.log(characterCounter);
     }
     //console.log(characterCounter);
   }
